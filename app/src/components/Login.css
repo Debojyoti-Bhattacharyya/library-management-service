@@ -18,7 +18,7 @@ body {
 }
 
 .container {
-	background-color: #ffffff;
+	background-color: #fff;
 	border-radius: 30px;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
 	position: relative;
@@ -49,6 +49,7 @@ body {
 .container button {
 	background-color: #512da8;
 	border-color: #fff;
+	color: #fff;
 	font-size: 12px;
 	padding: 10px 45px;
 	border: 1px solid transparent;
@@ -153,13 +154,13 @@ body {
 	height: 100%;
 	overflow: hidden;
 	transition: all 0.6s ease-in-out;
-	border-radius: 150px 0 0 100px;
+	border-radius: 100px 0 0 100px;
 	z-index: 1000;
 }
 
 .container.active .toggle-container {
 	transform: translateX(-100%);
-	border-radius: 0 150px 100px 0;
+	border-radius: 0 100px 100px 0;
 }
 
 .toggle {
