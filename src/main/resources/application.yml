@@ -1,0 +1,12 @@
+spring:
+    application:
+        name: library-management-service
+    data:
+        mongodb:
+            uri: mongodb+srv://dummyuser:5TC1lbrs84M5DpoG@cluster0.yeqt3ec.mongodb.net/
+            database: library_database
+    output:
+        ansi:
+            enabled: always
+server:
+    port: 8082
