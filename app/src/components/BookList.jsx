@@ -6,6 +6,7 @@ import {
 	Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import Navbar from "./Navbar";
 
 function BookList() {
 	const [bookList, setBookList] = useState([]);
@@ -50,6 +51,7 @@ function BookList() {
 
 	return (
 		<div class="min-h-screen bg-indigo-300">
+			<Navbar />
 			<div
 				id="BookList"
 				class="p-3 text-pretty text-center text-2xl text-slate-800 font-mono"
