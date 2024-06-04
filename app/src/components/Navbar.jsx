@@ -11,7 +11,7 @@ export default function Navbar() {
 		navigate("/");
 	};
 	const openLoginPage = () => {
-		navigate("/");
+		navigate("/login");
 	};
 
 	return (
@@ -25,7 +25,9 @@ export default function Navbar() {
 				</a>
 			</div>
 			<div class="navbar-right">
-				<button id="loginbtn">Log In</button>
+				<button id="loginbtn" onClick={openLoginPage}>
+					Log In
+				</button>
 				<button id="signupbtn">Sign Up</button>
 			</div>
 		</div>
