@@ -13,6 +13,10 @@ export default function Navbar() {
 	const openLoginPage = () => {
 		navigate("/login");
 	};
+	const openSignUpPage = () => {
+		navigate("/login");
+		document.getElementById("container").classList.add("active");
+	};
 
 	return (
 		<div class="navbar-body">
@@ -28,7 +32,9 @@ export default function Navbar() {
 				<button id="loginbtn" onClick={openLoginPage}>
 					Log In
 				</button>
-				<button id="signupbtn">Sign Up</button>
+				<button id="signupbtn" onClick={openSignUpPage}>
+					Sign Up
+				</button>
 			</div>
 		</div>
 	);

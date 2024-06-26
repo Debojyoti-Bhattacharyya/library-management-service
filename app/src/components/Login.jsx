@@ -3,10 +3,17 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import GoogleIcon from "@mui/icons-material/Google";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import "./Login.css";
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./Navbar";
 
 function Login() {
+	const { isTogglerActive, setIsTogglerActive } = useState(false);
+	const toggleToLoginScreen = () => {
+		document.getElementById("container").classList.remove("active");
+	};
+	const toggleToSignUpScreen = () => {
+		document.getElementById("container").classList.add("active");
+	};
 	return (
 		<div>
 			<Navbar />
@@ -71,11 +78,7 @@ function Login() {
 								</p>
 								<button
 									id="login"
-									onClick={() =>
-										document
-											.getElementById("container")
-											.classList.remove("active")
-									}
+									onClick={toggleToLoginScreen}
 								>
 									Sign In
 								</button>
@@ -88,11 +91,7 @@ function Login() {
 								</p>
 								<button
 									id="register"
-									onClick={() =>
-										document
-											.getElementById("container")
-											.classList.add("active")
-									}
+									onClick={toggleToSignUpScreen}
 								>
 									Sign Up
 								</button>
