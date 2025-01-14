@@ -25,7 +25,7 @@ public class BookService {
         return bookRepository
                 .findAll()
                 .collectList()
-                .map(books -> new BookListResponse(books));
+                .map(BookListResponse::new);
     }
 
     public Mono<Book> getBookById(String id) {
