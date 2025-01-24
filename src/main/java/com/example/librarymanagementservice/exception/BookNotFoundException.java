@@ -1,7 +1,10 @@
 package com.example.librarymanagementservice.exception;
 
-public class BookNotFoundException extends RuntimeException {
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+
+public class BookNotFoundException extends ResponseStatusException {
     public BookNotFoundException(String id) {
-        super("Book with id : " + id + " not found!");
+        super(HttpStatus.NOT_FOUND, "Book with id : " + id + " not found!");
     }
 }

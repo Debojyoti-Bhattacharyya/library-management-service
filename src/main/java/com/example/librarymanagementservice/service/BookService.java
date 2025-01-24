@@ -29,7 +29,7 @@ public class BookService {
     }
 
     public Mono<Book> getBookById(String id) {
-        return bookRepository.findById(id);
+        return bookRepository.findById(id).switchIfEmpty(Mono.error(new BookNotFoundException(id)));
     }
 
     public Mono<Book> getBookByName(String bookName) {
@@ -42,17 +42,17 @@ public class BookService {
     }
 
     public Mono<Book> updateBookStatus(String id) {
-        Mono<Book> updatedBookMono = bookRepository.findById(id)
-                .flatMap(item -> Mono.just(
-                        Book
-                                .builder()
-                                .bookId(id)
-                                .bookName(item.getBookName())
-                                .authorName(item.getAuthorName())
-                                .publishDate(item.getPublishDate())
-                                .isIssued(!item.isIssued())
-                                .build()))
+        return bookRepository.findById(id)
+                .flatMap(item -> {
+                    Mono.just(Book.builder()
+                                    .bookId(id)
+                                    .bookName(item.getBookName())
+                                    .authorName(item.getAuthorName())
+                                    .publishDate(item.getPublishDate())
+                                    .isIssued(!item.isIssued())
+                                    .build());
+                    return bookRepository.save(item);
+                })
                 .switchIfEmpty(Mono.error(new BookNotFoundException(id)));
-        return bookRepository.saveAll(updatedBookMono).next();
     }
 }
